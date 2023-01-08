@@ -1,0 +1,17 @@
+{% extends 'index.html' %}
+
+{% block main %}
+<br>
+{% if error %}
+<p>"{{error}}"</p>
+{% endif %}
+<br>
+<a href="/">
+    <form method="post">
+        <input type="button" value="try to log in again" id="logout">
+    </form>
+</a> 
+
+
+{% endblock %}  
+

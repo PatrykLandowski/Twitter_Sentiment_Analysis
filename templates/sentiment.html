@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+
+{% block main %}
+    <br>
+    {% if plot_url %}
+    <img class="plot" src= {{plot_url}} alt = "Chart cannot be displayed">
+    {% endif %}
+    <br>
+    {% if url_all %}
+    <img class="wordcloud" src= {{url_all}} alt = "Word cloud cannot be displayed">
+    {% endif %}
+    <br>
+    </form>
+    <a href="/nextquerry">
+        <form action="/nextquerry">
+             <input  type="button" value="next querry"/>
+        </form>
+    </a>
+
+<br>
+<a href="/">
+    <form method="post">
+        <input type="button" value="Log Out" id="logout">
+    </form>
+</a>  
+
+{% endblock %}

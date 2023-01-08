@@ -1,0 +1,56 @@
+body {
+    text-align: center;
+    background-color: white;
+}
+p {
+    color: #1DA1F2;
+    font-family: Arial;
+    font-size: 1.2em;
+    display: inline-block;
+    margin:  20px;
+}
+img {
+
+    width: 20%;
+}
+
+.plot{
+    margin: 20px 0 20px 0;
+    width: 40%;
+}
+
+.wordcloud{
+    margin: 20px 0 20px 0;
+    width: 60%;
+}
+label{
+    font-family: Arial;
+}
+
+input {
+  width: 50%;
+  margin: 20px 20px;
+  height: 2%;
+  border: solid;
+  border-radius: 10px;
+  font-family: Arial;
+  font-size: 100%;
+  text-align: center;
+}
+
+Select {
+    width: 5%;
+    margin: 20px 20px;
+    height: 2%;
+    border: solid;
+    border-radius: 10px;
+    font-family: Arial;
+    font-size: 100%;
+    text-align: center;
+  }
+
+input:focus {
+    outline: none;
+    border: solid 5px #1DA1F2;
+}
+

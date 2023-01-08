@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Twitter Sentiment Analysis</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
+</head>
+<body>
+    <img src="https://user-images.githubusercontent.com/121685384/210094086-03dd0e0a-a1c4-40a9-998b-5d0034928ddf.jpg">
+
+{% block main %}
+    <form action="sentiment" method="post">
+        <br>
+        <input type="text" name="question" placeholder="Question"><br>
+        <label for="language">Choose a language:</label>
+        <select name="language">
+            <option value="pl">PL</option>
+            <option value="en">EN</option>
+        </select>
+        <br>
+        <label for="tweets_amount">How many tweets from last 7 days do you want to analyse:</label>
+        <select name="tweets_amount">
+            <option value="100">100</option>
+            <option value="500">500</option>
+            <option value="1000">1000</option>
+        </select>
+
+          <br>
+        <input type="submit" value="Submit" id="log">     
+    </form>
+    <br>
+    <a href="/">
+        <form method="post">
+            <input type="button" value="Log Out" id="logout">
+        </form>
+    </a>  
+{% endblock %}  
+
+</body>
+</html>

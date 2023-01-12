@@ -19,12 +19,15 @@ import io
 from io import BytesIO
 
 app = Flask(__name__)
-app.secret_key = "manbearpig_MUDMAN888"
+app.secret_key = "admin1234"
 
 #First page when providing tokens is required
 @app.route('/', methods=['POST', 'GET'])
 def sign_up():
-
+    session.pop('api_key', default=None)
+    session.pop('api_key_secret', default=None)
+    session.pop('access_token', default=None)
+    session.pop('access_token_secret', default=None)
     return render_template("sign-up.html")
 
 #Directs to the page where we can set up searching querry. If there is error with tokens, redirecting to the error page.
@@ -49,8 +52,10 @@ def home():
             result_type="mixed").items(1)
             tweets_test = [tweet for tweet in tweet_cursor_test]
         except:
-            print("Oops!  That was no valid number.  Try again...")
-            return render_template("error.html")
+            print("error")
+            error="Please provide correct login details."
+            
+            return render_template("error.html", error=error)
         else:
             print("loged in")
             break
@@ -122,13 +127,13 @@ def submit():
             tweet_list_df['cleaned'] = pd.DataFrame(cleaned_tweets)
             success = True    
         except ValueError:
-            print("There is no any tweet containing ")
-            return render_template("error.html", error="There is no any tweet containing")
+            error="There is no any tweet containing specified key-word."
+            return render_template("error.html", error=error)
         else:
             print("tweets successfully searched")
             break
-    #Calculating Negative, Positive, Neutral and Compound values
 
+    #Calculating Negative, Positive, Neutral and Compound values
     tweet_list_df[['polarity', 'subjectivity']] = tweet_list_df['cleaned'].apply(lambda Text: pd.Series(TextBlob(Text).sentiment))
     for index, row in tweet_list_df['cleaned'].iteritems():
         score = SentimentIntensityAnalyzer().polarity_scores(row)

@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Twitter Sentiment Analysis</title>
+    <title>TweetChecker</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='css/main.css') }}">
 </head>
 <body>
@@ -11,7 +11,7 @@
 {% block main %}
     <form action="sentiment" method="post">
         <br>
-        <input type="text" name="question" placeholder="Question"><br>
+        <input type="text" name="question" placeholder="key-word"><br>
         <label for="language">Choose a language:</label>
         <select name="language">
             <option value="pl">PL</option>

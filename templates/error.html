@@ -3,12 +3,12 @@
 {% block main %}
 <br>
 {% if error %}
-<p>"{{error}}"</p>
+<p>{{error | safe }}</p>
 {% endif %}
 <br>
 <a href="/">
     <form method="post">
-        <input type="button" value="try to log in again" id="logout">
+        <input type="button" value="log in again" id="logout">
     </form>
 </a> 
 

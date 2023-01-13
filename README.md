@@ -52,7 +52,7 @@ If you've already created an App and need to find or regenerate your API Key and
 
   | ID |      category  |  name | description | priority |
   |:--:|---------------|:------:|------|:------:|
-  |  1 | functional     | log-in function | Page where user can provide login details <br>which will be used to connect with Twitter API | 1
+  |  1 | functional     | log-in function | Page where user can provide login details. <br>which will be used to connect with Twitter API | 1
   |  2 | non-functional     | wrong login <br>credentials notification | If login credentials will be not valid <br>user will have to receive a notification. | 2
   |  3 | functional     | query form | Form where user can specify query details such as:<br> key word, language and max amounts of teets to be searched.  | 1
   |  4 | non-functional     | wrong query notification | If for some reason provided query will not give any result from Twitter API, user will have to receive notification.  | 2
@@ -65,9 +65,11 @@ If you've already created an App and need to find or regenerate your API Key and
 
 - App Framework - Flask
 - Front end - HTML + CSS
-- Back end - Python (tweepy, pandas, textblob, nltk, numpy, PIL, wordcloud, matplotlib, base64, io)
+- Back end - Python and following bibliotecs*: tweepy, pandas, textblob, nltk, numpy, PIL, wordcloud, matplotlib, base64, io
 - Version Controll - GitHub
 - Code Editor - Visual Studio Code
+
+*versions can be checked in requirements.txt file
 
 ## App folder structure
 
@@ -101,6 +103,8 @@ Go to the below link, download repositiry and unpack it from zip file on your De
 https://github.com/PatrykLandowski/Twitter_Sentiment_Analysis.git
 
 ## Set up virtual enviroment.
+
+We assume you have already python and pip installed.
 
 Open cmd window and type following lines
 
@@ -136,32 +140,49 @@ http://127.0.0.1:5000
 ```
 
 Provide keys and tokens from your Twitter Developer account and click on "Sign Up":
+
+
 ![Login](https://github.com/PatrykLandowski/Twitter_Sentiment_Analysis/blob/main/Screenshots/sign_up.png?raw=true)
 
-Specify query bu providing:
+
+If incorrect login details will pe provided, error page will show up.
+
+![Login](https://github.com/PatrykLandowski/Twitter_Sentiment_Analysis/blob/main/Screenshots/incorrect_login.png?raw=true)
+
+
+If correct login details will be provided, app will lead to the query page. In order to go further please provide:
 - key word (all analysed tweets will have to contain this word)
 - language of tweets
 - amount of tweets to be analysed  
-Click on Submit to run an analysis
+
+Click on Submit to run an analysis.
 
 ![Login](https://github.com/PatrykLandowski/Twitter_Sentiment_Analysis/blob/main/Screenshots/query.png?raw=true)
 
-# Tests of Software Requirements
+In below example we searched last 100 tweets looking for "tesla" key-word in english language.
+
+![Login](https://github.com/PatrykLandowski/Twitter_Sentiment_Analysis/blob/main/Screenshots/sentiment.png?raw=true)
+
+If key word will be not found in any tweet in the last 7 days, error page will show up.
+
+![Login](https://github.com/PatrykLandowski/Twitter_Sentiment_Analysis/blob/main/Screenshots/incorrect_query.png?raw=true)
+
+# Software Requirements Tests
 
 ## Testing Login functionality (ID 1 + 2)
 | ID |Description |      Expected Result     |  Status | 
   |:--:|--|-----------------------|:------:|
-  |  1 | Providing correct login details at the login page.     | App will pass the user to the query page |  Pass|
-  |  2 | providing incorrect login details or blank form at the login page    | App will show error page with notification about incorrect login details |  Pass|
+  |  1 | Providing correct login details at the login page.     | App will pass the user to the query page. |  Pass|
+  |  2 | Providing incorrect login details or blank form at the login page.    | App will show error page with notification to provide correct login details. |  Pass|
 ## Testing query form functionality (ID 3 + 4 + 6 + 7)
 | ID |Description |      Expected Result     |  Status | 
   |:--:|--|-----------------------|:------:|
-  |  3 | Query page with form allowing to type key word, chose language and maximum tweets amount should be available.     | After successfull login query page is displayed with all options is available |  Pass|
-  |  4 | Key word "aaaaaaaaaaaaaaaaaaaaa" was provided as expected to be not found in any tweet on twitter in the last 7 days.    | After providing specified key word, notification of an error shows up |  Pass|
-  |  6+7 | Filling up query form correctly and submitting the form.     | App is leading user to the sentiment page where plot showing composition of negative/positive/neutral tweets and word cloud are shown.  |  Pass|
+  |  3 | Providing correct login details at the login page.     | After successfull login query page is displayed with all options available. |  Pass|
+  |  4 | Key word "aaaaaaaaaaaaaaaaaaaaa" was provided as expected to be not found in any tweet on twitter in the last 7 days.    | After providing specified key word, notification of an error shows up. |  Pass|
+  |  6+7 | Filling up query form correctly and submitting the form.     | App is leading to the sentiment page where plot showing composition of negative/positive/neutral tweets and word cloud are posted.  |  Pass|
 
 
 ## Testing Sign-out button. (ID 5)
 | ID |Description |      Expected Result     |  Status | 
   |:--:|--|-----------------------|:------:|
-  |  35 | Query page with form allowing to type key word, chose language and maximum tweets amount should be available.     | After successfull login query page is displayed with all options is available |  Pass|
+  |  5 | Clicking on sign-out button on each page.     | Each time after clicking on sign-out button, app is leading to the login page. |  Pass|

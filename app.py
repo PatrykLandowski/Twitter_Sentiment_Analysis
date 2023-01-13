@@ -1,3 +1,4 @@
+#Copyright © 2023 Patryk Landowski & Karolina Zaboronek
 import tweepy
 import pandas as pd
 import re
@@ -54,8 +55,8 @@ def home():
         except:
             print("error")
             error="Please provide correct login details."
-            
-            return render_template("error.html", error=error)
+            log_in="yes"
+            return render_template("error.html", error=error, log_in=log_in)
         else:
             print("loged in")
             break
@@ -70,9 +71,7 @@ def nextquerry():
 #Logging into twitter API, scrapping tweets, preprocessing them, creating sentiment chart and word cloud.
 @app.route("/sentiment", methods=['POST', 'GET'])
 def submit():
-
-
-   
+ 
     #get tokens + keys
     api_key=session.get('api_key')
     api_key_secret=session.get('api_key_secret')
@@ -97,8 +96,6 @@ def submit():
         data.append([tweet.text])
     tweet_list_df = pd.DataFrame(data, columns=columns)
     tweet_list_df = tweet_list_df.replace(r'\n',' ', regex=True) #removing line breaks
-
-
 
     #preprocessing tweets (cleaning text)
     def preprocess_tweet(sen):
@@ -128,7 +125,8 @@ def submit():
             success = True    
         except ValueError:
             error="There is no any tweet containing specified key-word."
-            return render_template("error.html", error=error)
+            next_query="yes"
+            return render_template("error.html", error=error, next_query=next_query)
         else:
             print("tweets successfully searched")
             break

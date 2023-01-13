@@ -1,16 +1,30 @@
+<!--Copyright © 2023 Patryk Landowski & Karolina Zaboronek-->
 {% extends 'index.html' %}
 
 {% block main %}
 <br>
-{% if error %}
-<p>{{error | safe }}</p>
-{% endif %}
-<br>
-<a href="/">
-    <form method="post">
-        <input type="button" value="log in again" id="logout">
-    </form>
-</a> 
+    {% if error %}
+    <p>{{error | safe }}</p>
+    {% endif %}
+
+    {% if next_query %}
+    <br>
+    <a href="/nextquerry">
+        
+        <form action="/nextquerry">
+            <input  type="button" value="next querry"/>
+        </form>
+    </a>
+    {% endif %}
+
+    {% if log_in %}
+    <br>
+    <a href="/">
+        <form method="post">
+            <input type="button" value="log in again" id="logout">
+        </form>
+    </a> 
+    {% endif %}
 
 
 {% endblock %}  

@@ -127,7 +127,7 @@ pip install -r requirements.txt
 ```
 Run app.py file:
 ```
-app.py
+python app.py
 ```
 
 

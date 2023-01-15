@@ -53,9 +53,9 @@ If you've already created an App and need to find or regenerate your API Key and
   | ID |      category  |  name | description | priority |
   |:--:|---------------|:------:|------|:------:|
   |  1 | functional     | log-in function | Page where user can provide login details. <br>which will be used to connect with Twitter API | 1
-  |  2 | non-functional     | wrong login <br>credentials notification | If login credentials will be not valid <br>user will have to receive a notification. | 2
+  |  2 | non-functional     | wrong login <br>credentials notification | If login credentials will be not valid <br>user will have to receive a notification. | 3
   |  3 | functional     | query form | Form where user can specify query details such as:<br> key word, language and max amounts of teets to be searched.  | 1
-  |  4 | non-functional     | wrong query notification | If for some reason provided query will not give any result from Twitter API, user will have to receive notification.  | 2
+  |  4 | non-functional     | wrong query notification | If for some reason provided query will not give any result from Twitter API, user will have to receive notification.  | 3
   |  5 | non-functional     | sign-out | Sign-out button have to be provided on each page.  | 2
   |  6 | functional     | sentiment plot | Once query is completed, plot with negative/positive/neutral sentiment of tweets will be provided.  | 1
   |  7 | functional     | word cloud | Once query is completed, word cloud with the most frequently used words will be provided.  | 1
@@ -63,11 +63,11 @@ If you've already created an App and need to find or regenerate your API Key and
 
 ## Tech Stack
 
-- App Framework - Flask
-- Front end - HTML + CSS
-- Back end - Python and following bibliotecs*: tweepy, pandas, textblob, nltk, numpy, PIL, wordcloud, matplotlib, base64, io
+- App Framework - Flask (2.2.2)
+- Front end - HTML (5) + CSS (3) + Jinja2 (3.1.2)
+- Back end - Python (3.11.1) and following bibliotecs*: tweepy (4.12.1), pandas (1.3.5), textblob (0.17.1), nltk (3.7), numpy (1.21.4), wordcloud (1.8.2.2), matplotlib (3.5.1)
 - Version Controll - GitHub
-- Code Editor - Visual Studio Code
+- Code Editor - Visual Studio Code (1.74.3)
 
 *versions can be checked in requirements.txt file
 

@@ -29,6 +29,9 @@ This repository contains an app which allows user to check sentiment of last 7-d
 
 # Prerequsites
 
+We assume you have already python and pip installed, If not please install them before starting our app.
+
+
 ## Twitter Developer account with API Key and Secret
 
 To acquire a Twitter API Key and Secret, please follow these steps:
@@ -95,7 +98,7 @@ H-->|next query|G
 # Usage
 
 ## Clone repository on your computer.
-
+For Windows:
 Go to the below link, download repositiry and unpack it from zip file on your Desktop.
 ```
 ~/Desktop/Twitter_Sentiment_Analysis-main

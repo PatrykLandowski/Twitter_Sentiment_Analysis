@@ -72,8 +72,6 @@ If you've already created an App and need to find or regenerate your API Key and
 - Version Controll - GitHub
 - Code Editor - Visual Studio Code (1.74.3)
 
-*versions can be checked in requirements.txt file
-
 ## App folder structure
 
 Here's a folder structure for our App:
